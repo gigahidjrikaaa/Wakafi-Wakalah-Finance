@@ -1,0 +1,6 @@
+[submodule "blockchain/wakafi-contracts/lib/forge-std"]
+	path = blockchain/wakafi-contracts/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "blockchain/wakafi-contracts/lib/openzeppelin-contracts"]
+	path = blockchain/wakafi-contracts/lib/openzeppelin-contracts
+	url = https://github.com/Openzeppelin/openzeppelin-contracts
