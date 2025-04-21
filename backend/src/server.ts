@@ -44,4 +44,3 @@ app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
   console.log(`[server]: Test YAML access at http://localhost:${port}/static-docs/openapi.yaml`);
   console.log(`[server]: API Docs available at http://localhost:${port}/docs`);
-});
