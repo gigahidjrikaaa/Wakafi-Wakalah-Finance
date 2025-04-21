@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "target": "ES2016",            // Target modern JavaScript version compatible with Node.js
+      "module": "CommonJS",          // Module system used by Node.js/Express
+      "outDir": "./dist",            // Folder where compiled JavaScript will be placed
+      "rootDir": "./src",            // Folder where our TypeScript source code will live
+      "strict": true,                // Enable strict type checking (recommended)
+      "esModuleInterop": true,       // Allows cleaner imports from CommonJS modules
+      "skipLibCheck": true,          // Skip type checking of declaration files (speeds up build)
+      "forceConsistentCasingInFileNames": true, // Enforce consistent file naming
+      "resolveJsonModule": true      // Allow importing .json files
+    },
+    "include": ["src/**/*"],         // Tells TypeScript to compile all .ts files within the src folder
+    "exclude": ["node_modules"]      // Tells TypeScript to ignore the node_modules folder
+  }
