@@ -1,0 +1,121 @@
+openapi: 3.0.0
+info:
+  title: Wakafi Backend API
+  version: 1.0.0
+  description: |
+    API for the Wakafi dApp, providing access to Sharia-compliant yield generation opportunities.
+    Manages user interactions, portfolio data, compliance lists, and interacts with the Wakalah smart contracts.
+servers:
+  # Add servers here later, e.g., development, staging, production
+  - url: http://localhost:3001/api/v1 # Use the port from your server.ts
+    description: Local development server
+tags: # Define tags for grouping routes later
+  - name: Public
+    description: Operations accessible without authentication
+  - name: User
+    description: User profile and settings operations (Requires Auth)
+  - name: Portfolio
+    description: User portfolio and transaction data (Requires Auth)
+  - name: Wakalah
+    description: Interaction support for Wakalah deposits/withdrawals (Requires Auth)
+  - name: Compliance
+    description: Access to Halal asset/strategy lists (Public & Admin)
+  - name: Admin
+    description: Administrative operations (Requires Admin Auth)
+paths:
+  /: # Document the existing root route
+    get:
+      summary: Root Welcome Message
+      tags: [Public]
+      description: Returns a simple welcome message to verify the API is running.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Welcome to the Wakafi Backend API!
+
+  # --- Placeholder Sections Based on Briefing ---
+  # We'll add detailed paths here as we implement them
+
+  # /api/v1/users/... placeholder
+  /users/{walletAddress}/profile:
+    get:
+      summary: Get User Profile (Placeholder)
+      tags: [User]
+      parameters:
+         - name: walletAddress
+           in: path
+           required: true
+           description: User's wallet address
+           schema:
+             type: string
+      responses:
+        '200': { description: OK - User profile data }
+        '401': { description: Unauthorized }
+        '403': { description: Forbidden (Accessing wrong user) }
+    put:
+      summary: Update User Profile (Placeholder)
+      tags: [User]
+      parameters:
+         - name: walletAddress
+           in: path
+           required: true
+           description: User's wallet address
+           schema:
+             type: string
+      responses:
+        '200': { description: OK - Profile updated }
+        '401': { description: Unauthorized }
+        '403': { description: Forbidden (Accessing wrong user) }
+
+  # /api/v1/portfolio/... placeholder
+  /portfolio/{walletAddress}/overview:
+    get:
+      summary: Get Portfolio Overview (Placeholder)
+      tags: [Portfolio]
+      parameters:
+         - name: walletAddress
+           in: path
+           required: true
+           description: User's wallet address
+           schema:
+             type: string
+      responses:
+        '200': { description: OK - Portfolio overview data }
+        '401': { description: Unauthorized }
+        '403': { description: Forbidden (Accessing wrong user) }
+  # ... add other portfolio placeholders similarly ...
+
+  # /api/v1/wakalah/... placeholder
+  /wakalah/deposit/info:
+    post:
+      summary: Get Deposit Info (Placeholder)
+      tags: [Wakalah]
+      responses:
+        '200': { description: OK - Deposit info and checks passed }
+        '400': { description: Bad Request (e.g., invalid asset) }
+        '401': { description: Unauthorized }
+  # ... add other wakalah placeholders similarly ...
+
+  # /api/v1/compliance/... placeholder
+  /compliance/assets:
+    get:
+      summary: Get Approved Halal Assets (Placeholder)
+      tags: [Compliance]
+      responses:
+        '200': { description: OK - List of approved assets }
+  # ... add other compliance placeholders similarly ...
+
+  # /api/v1/admin/... placeholder
+  /admin/compliance/assets:
+    get:
+      summary: List All Assets (Admin) (Placeholder)
+      tags: [Admin]
+      responses:
+        '200': { description: OK - Full list of assets }
+        '401': { description: Unauthorized }
+        '403': { description: Forbidden (Not an admin) }
+  # ... add other admin placeholders similarly ...
