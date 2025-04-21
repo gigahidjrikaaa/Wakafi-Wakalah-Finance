@@ -1,5 +1,5 @@
-'use client'
-import Home from './home';
+'use client';
+
 import '@rainbow-me/rainbowkit/styles.css';
 import {
   getDefaultConfig,
@@ -17,21 +17,22 @@ import {
   QueryClientProvider,
   QueryClient,
 } from "@tanstack/react-query";
+import React from 'react';
 
 const config = getDefaultConfig({
-  appName: 'My RainbowKit App',
-  projectId: 'YOUR_PROJECT_ID',
+  appName: 'Wakafi App', // Ganti dengan nama aplikasi Anda
+  projectId: 'YOUR_PROJECT_ID', // Ganti dengan Project ID RainbowKit Anda
   chains: [mainnet, polygon, optimism, arbitrum, base],
-  ssr: true, // If your dApp uses server side rendering (SSR)
+  ssr: true, // Jika aplikasi Anda menggunakan SSR
 });
 const queryClient = new QueryClient();
 
-export default function App() {
+export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider>
-          <Home />
+          {children}
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
